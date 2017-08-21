@@ -1,0 +1,26 @@
+
+[{shop_url}] 
+
+Hello,
+
+A new candidate is registered below details about his profile:
+
+{first_name_label} :  {first_name}
+{last_name_label} : {last_name}
+{birth_date_label} : {birth_date}
+{address_label} : {address}
+{phone_label} : {phone}
+{phone_other_label} : {phone_other}
+{email_label} : {email}
+{study_level_label} : {study_level}
+{com_exp_label} : {com_exp}
+{similar_exp_label} : {similar_exp}
+{representative_label} : {representative}
+{fb_acc_label} : {fb_acc}
+{fb_acc_other_label} : {fb_acc_other}
+{fb_admin_label} : {fb_admin}
+{have_store_label} : {have_store}
+{store_desc_label} : {store_desc}
+{application_location_label} : {application_location}
+{application_reasons_label} : {application_reasons}
+{ip_label} : {ip}

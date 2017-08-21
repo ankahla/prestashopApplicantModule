@@ -1,0 +1,23 @@
+body .form-group .form-control-label,
+body .form-group .col-md-6 {
+    float: right!important;
+    text-align: left!important;
+}
+body .form-group .col-md-6.form-control-valign {
+    text-align: right!important;
+}
+
+body .form-group [class^='col-md-'] {
+	float: right!important;
+}
+body .form-group .form-control-comment {
+    float: left!important;
+}
+body .custom-checkbox label {
+    float: right!important;
+    text-align: right!important;
+}
+body .form-group span.custom-checkbox span {
+    float: right!important;
+    margin-left: 10px!important;
+}

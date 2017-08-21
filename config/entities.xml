@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mapping>
+	<entity name="applicant" table="store_applicant">
+		<field name="first_name"           type="VARCHAR" length="20"  nullable="false" html_type="text"     default=""  label="Firstname"/>
+		<field name="last_name"            type="VARCHAR" length="20"  nullable="false" html_type="text"     default=""  label="Lastname"/>
+		<field name="birth_date"           type="DATE"    length=""    nullable="false" html_type="date"     default=""  label="Birth date"/>
+		<field name="address"              type="TEXT"    length=""    nullable="false" html_type="text"     default=""  label="Address"/>
+		<field name="phone"                type="VARCHAR" length="20"  nullable="false" html_type="text"     default=""  label="Phone"/>
+		<field name="phone_other"          type="TEXT"    length=""    nullable="true"  html_type="text"     default=""  label="Other phone"/>
+		<field name="email"                type="VARCHAR" length="20"  nullable="false" html_type="email"    default=""  label="Email"/>
+		<field name="study_level"          type="VARCHAR" length="200" nullable="false" html_type="text"     default=""  label="Study level"/>
+		<field name="com_exp"              type="TEXT"    length=""    nullable="true"  html_type="textarea" default=""  label="commercial experience"/>
+		<field name="similar_exp"          type="TEXT"    length=""    nullable="true"  html_type="textarea" default=""  label="Similar experience"/>
+		<field name="representative"       type="TEXT"    length=""    nullable="false" html_type="textarea" default=""  label="Representative"/>
+		<field name="fb_acc"               type="VARCHAR" length="250" nullable="false" html_type="text"     default=""  label="Facebook account"/>
+		<field name="fb_acc_other"         type="TEXT"    length=""    nullable="true"  html_type="textarea" default=""  label="Other facebook account"/>
+		<field name="fb_admin"             type="TEXT"    length=""    nullable="true"  html_type="textarea" default=""  label="Administred Facebook account"/>
+		<field name="have_store" type="ENUM('0','1','other')" length="" nullable="false" html_type="select"  default="" label="Owen store">
+			<choices>
+				<choice id="0" label="No"/>
+				<choice id="1" label="Yes"/>
+				<choice id="other" label="Other"/>
+			</choices>
+		</field>
+		<field name="store_desc"           type="TEXT"    length=""    nullable="true"  html_type="textarea" default=""  label="Store description"/>
+		<field name="application_location" type="VARCHAR" length="250" nullable="false" html_type="text"     default=""  label="Desired location"/>
+		<field name="application_reasons"  type="TEXT"    length=""    nullable="false" html_type="textarea" default=""  label="application reasons"/>
+		<field name="accurate"             type="TINYINT" length="2"   nullable="true"  html_type="checkbox" default=""  label="Accurate informations"/>
+		<field name="created_at"           type="DATETIME" length=""  nullable="false" html_type="hidden"   default="CURRENT_TIMESTAMP"  label="Application date"/>
+		<field name="ip"                   type="VARCHAR" length="20"  nullable="true"  html_type="hidden"   default=""  label="ip"/>
+	</entity>
+</mapping>

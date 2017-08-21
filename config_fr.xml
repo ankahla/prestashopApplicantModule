@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>applicant</name>
+	<displayName><![CDATA[Formulaire de candidature]]></displayName>
+	<version><![CDATA[2.3.2]]></version>
+	<description><![CDATA[Ajouter un formulaire pour candidature]]></description>
+	<author><![CDATA[kahla.anouar@yahoo.fr]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<confirmUninstall><![CDATA[Êtes vous sûre de vouloir supprimer toute la liste des candidats également ?]]></confirmUninstall>
+	<is_configurable>1</is_configurable>
+	<need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
