@@ -1,12 +1,12 @@
 {
-  "name": "prestashop/blocknewsletter",
-  "description": "PrestaShop module blocknewsletter",
-  "homepage": "https://github.com/PrestaShop/blocknewsletter",
+  "name": "ankahla/prestashopApplicantModule",
+  "description": "PrestaShop module for job application",
+  "homepage": "https://github.com/ankahla/prestashopApplicantModule",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [
     {
-      "name": "PrestaShop SA",
-      "email": "contact@prestashop.com"
+      "name": "ankahla",
+      "email": "kahla.anouar@yahoo.fr"
     }
   ],
   "require": {
