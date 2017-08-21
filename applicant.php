@@ -736,61 +736,30 @@ class applicant extends Module
 
 	private function loadEntities()
 	{
+		$this->fieldsMetaData = @simplexml_load_string($this->display(__FILE__, 'config/entities.xml'));
 
-		$fieldsMetaDataCacheId = 'applicant::fieldsMetaData';
-		$fieldsDefinitionCacheId = 'applicant::fieldsDefinition';
+		if ($this->fieldsMetaData) {
 
-		$this->fieldsMetaData = $this->getFromCache($fieldsMetaDataCacheId);
+			foreach ($this->fieldsMetaData->entity[0]->field as $field) {
+				$name = (string)$field['name'];
+				$label = (string)$field['label'];
 
-        if (!$this->fieldsMetaData) {
-        	$this->fieldsMetaData = @simplexml_load_string($this->display(__FILE__, 'config/entities.xml'));
-            $this->storeInCache($fieldsMetaDataCacheId, $this->fieldsMetaData);
-        }
+				$fd = [
+				'required' => !$field['nullable'],
+				'label'    => $this->translateLabel($label),
+				'type'     => (string)$field['html_type'],
+				];
 
-        
+				if (isset($field->choices)) {
+					foreach ($field->choices->choice as $choice) {
+						$id = (string)$choice['id'];
+						$choiceLabel = (string)$choice['label'];
+						$fd['choices'][$id] = $this->translateLabel($choiceLabel);
+					}
+				}
 
-        if ($this->fieldsMetaData) {
-        	$this->fieldsDefinition = $this->getFromCache($fieldsDefinitionCacheId);
-
-        	if (!$this->fieldsDefinition) {
-        		foreach ($this->fieldsMetaData->entity[0]->field as $field) {
-        			$name = (string)$field['name'];
-        			$label = (string)$field['label'];
-
-        			$fd = [
-        			'required' => !$field['nullable'],
-        			'label'    => $this->translateLabel($label),
-        			'type'     => (string)$field['html_type'],
-        			];
-
-        			if (isset($field->choices)) {
-        				foreach ($field->choices->choice as $choice) {
-        					$id = (string)$choice['id'];
-        					$choiceLabel = (string)$choice['label'];
-        					$fd['choices'][$id] = $this->translateLabel($choiceLabel);
-        				}
-        			}
-
-        			$this->fieldsDefinition[$name] = $fd;
-        		}
-        		$this->storeInCache($fieldsDefinitionCacheId, $this->fieldsDefinition);
-        	}
-        }
-	}
-
-	private function storeInCache($key, $data, $ttl = 3600)
-	{
-		$cache = Cache::getInstance();
-		$cache->set($key, $data, $ttl);
-	}
-
-	private function getFromCache($key)
-	{
-		$cache = Cache::getInstance();
-		if ($cache->exists($key)) {
-			return $cache->get($key);
+				$this->fieldsDefinition[$name] = $fd;
+			}
 		}
-
-		return;
 	}
 }
